@@ -7,7 +7,7 @@ export default {
   'menu.login': 'Masuk',
   'menu.register': 'Pendaftaran',
   'menu.register-result': 'Hasil Pendaftaran',
-  'menu.dashboard': 'Dasbor',
+  'menu.dashboard': 'Dashboard',
   'menu.dashboard.analysis': 'Analisis',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',

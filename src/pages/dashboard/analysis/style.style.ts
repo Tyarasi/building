@@ -96,6 +96,12 @@ const useStyles = createStyles(({ token }) => {
         padding: '16px',
       },
     },
+    videoBar: {
+      padding: '0 0 32px 32px',
+      [`@media screen and (max-width: ${token.screenMD}px)`]: {
+        padding: '16px',
+      },
+    },
     salesRank: {
       padding: '0 32px 32px 72px',
     },

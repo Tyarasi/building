@@ -23,10 +23,10 @@ type AnalysisProps = {
   dashboardAndanalysis: AnalysisData;
   loading: boolean;
 };
-type SalesType = 'all' | 'online' | 'stores';
+type AllType = 'all' | 'online' | 'stores';
 const Analysis: FC<AnalysisProps> = () => {
   const { styles } = useStyles();
-  const [salesType, setSalesType] = useState<SalesType>('all');
+  const [salesType, setSalesType] = useState<AllType>('all');
   const [currentTabKey, setCurrentTabKey] = useState<string>('');
   const [rangePickerValue, setRangePickerValue] = useState<RangePickerValue>(
     getTimeDistance('year'),

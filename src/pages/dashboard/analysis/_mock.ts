@@ -79,7 +79,7 @@ const salesTypeDataOffline = [
 const offlineData = [];
 for (let i = 0; i < 10; i += 1){
     offlineData.push({
-        name: `Stores ${i}`,
+        name: `Progress ${i}`,
         cvr: Math.ceil(Math.random() * 9) / 10,
     });
 }
@@ -88,12 +88,12 @@ for (let i = 0; i < 20; i += 1) {
   const date = dayjs(new Date().getTime() + 1000 * 60 * 30 * i).format('HH:mm');
   offlineChartData.push({
     date,
-    type: 'AA',
+    type: 'Data A',
     value: Math.floor(Math.random() * 100) + 10,
   });
   offlineChartData.push({
     date,
-    type: 'BB',
+    type: 'Data B',
     value: Math.floor(Math.random() * 100) + 10,
   });
 }

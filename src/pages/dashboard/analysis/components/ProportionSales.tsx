@@ -36,7 +36,7 @@ const ProportionSales = ({
             <Radio.Group value={salesType} onChange={handleChangeSalesType}>
               <Radio.Button value="all">all</Radio.Button>
               <Radio.Button value="online">online</Radio.Button>
-              <Radio.Button value="stores">stores</Radio.Button>
+              <Radio.Button value="stores">offline</Radio.Button>
             </Radio.Group>
           </div>
         </div>
