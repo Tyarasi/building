@@ -3,9 +3,13 @@ import { GridContent } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
 import { Avatar, Card, Col, Divider, Input, InputRef, Row, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
-import useStyles from './Center.style';
+import useStyles from './Center.style'; 
+import Applications from './components/Applications';
+import Articles from './components/Articles';
+import Projects from './components/Projects';
 import type { CurrentUser, tabKeyType, TagType } from './data.d';
 import { queryCurrent } from './service';
+
 const operationTabList = [
   {
     key: 'articles',
@@ -146,36 +150,10 @@ const Center: React.FC = () => {
           />
           {group}
         </p>
-        <p>
-          <HomeOutlined
-            style={{
-              marginRight: 8,
-            }}
-          />
-          {
-            (
-              geographic || {
-                province: {
-                  label: 'Test',
-                },
-              }
-            ).province.label
-          }
-          {
-            (
-              geographic || {
-                city: {
-                  label: 'Testt',
-                },
-              }
-            ).city.label
-          }
-        </p>
       </div>
     );
   };
 
-  // 渲染tab切换
   const renderChildrenByTabKey = (tabValue: tabKeyType) => {
     if (tabValue === 'projects') {
       return <Projects />;
@@ -199,7 +177,7 @@ const Center: React.FC = () => {
             }}
             loading={loading}
           >
-            {!loading && currentUser && (
+            {!loading && currentUser &&(
               <div>
                 <div className={styles.avatarHolder}>
                   <img alt="" src={currentUser.avatar} />
@@ -216,7 +194,6 @@ const Center: React.FC = () => {
                   dashed
                 />
                 <div className={styles.team}>
-                  <div className={styles.teamTitle}>团队</div>
                   <Row gutter={36}>
                     {currentUser.notice &&
                       currentUser.notice.map((item) => (

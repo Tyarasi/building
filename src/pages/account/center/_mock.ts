@@ -1,26 +1,25 @@
 import type { Request, Response } from 'express';
-import type { ListItemDataType } from './data.d';
+import type { ListItemDataType, ListItemWorkType } from './data.d';
 
 const titles = [
-  'Alipay',
-  'Angular',
-  'Ant Design',
-  'Ant Design Pro',
-  'Bootstrap',
-  'React',
-  'Vue',
-  'Webpack',
+  'PT.Infomedia Solusi Humanika',
+  'PT.Bigs Integrasi Teknologi',
+  'PT.Digital Otoma Solusi',
 ];
 const avatars = [
-  'https://gw.alipayobjects.com/zos/rmsportal/WdGqmHpayyMjiEhcKoVE.png', // Alipay
-  'https://gw.alipayobjects.com/zos/rmsportal/zOsKZmFRdUtvpqCImOVY.png', // Angular
-  'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png', // Ant Design
-  'https://gw.alipayobjects.com/zos/rmsportal/sfjbOqnsXXJgNCjCzDBL.png', // Ant Design Pro
-  'https://gw.alipayobjects.com/zos/rmsportal/siCrBXXhmvTQGWPNLBow.png', // Bootstrap
-  'https://gw.alipayobjects.com/zos/rmsportal/kZzEzemZyKLKFsojXItE.png', // React
-  'https://gw.alipayobjects.com/zos/rmsportal/ComBAopevLwENQdKWiIn.png', // Vue
-  'https://gw.alipayobjects.com/zos/rmsportal/nxkuOJlFJuAUhzlMTCEe.png', // Webpack
+  'images/rct.png', // React
+  'images/ts.png', // Type Script
+  'images/lrvl.png', // Laravel
+  'images/php.png', // PHP
+  'images/phytn.jpeg', // Python
+  'images/fstapi.svg', // Fast API
+  'images/bstrp.svg', // Bootstrap
+  'images/css.png', // CSS
+  'images/antdsgn.png', // Ant Design
+  'images/pro.png' // Ant Design Pro
 ];
+
+
 
 const covers = [
   'https://gw.alipayobjects.com/zos/rmsportal/uMfMFlvUuceEyPpotzlq.png',
@@ -49,11 +48,36 @@ const user = [
   '仲尼',
 ];
 
+const content_pengalaman = [
+  '- Membantu melaksanakan instalasi jaringan komputer - Membantu melakukan pemeliharaan jaringan komputer',
+  '- Membangun Aplikasi ERP dengan Fitur Project Management untuk perusahaan',
+  '-'
+];
+
+const description = [
+  'PT.Infomedia Solusi Humanika (ISH) merupakan anak perusahaan PT. Infomedia Nusantara (Telkom Group) yang bergerak dalam bidang HR Process & Solutions serta sudah mengelola sekitar 18.000 orang tenaga kerja.ISH memiliki 3 Pilar bisnis, diantaranya: BPO HR Solution, BPO HR Process, dan BPO ConsultingBeberapa pekerjaan yang dilakukan',
+  'PT.Bigs Integrasi Teknologi adalah perusahaan yang bergerak di IT Software. ahli dibidang Digital Transformation for Business.',
+  'DGOS berupaya menghadirkan pengalaman otomasi terbaik bagi pengguna dan produsen dengan menawarkan alat yang diperlukan untuk memulai dengan cepat dan solid di sebagian besar proyek.',
+];
+
+const logoPerushaan = [
+  'images/ISH.png', // PT. Infomedia Solusi Humanika
+  'images/BIGS.png', // PT. Bigs Integrasi Teknologi
+  'images/logo.svg', // PT. Digital Otoma Solusi
+];
+
+const link = [
+  'https://ish.co.id/',
+  'https://www.bigsgroup.co.id/',
+  'https://dgos.id/',
+];
+
+
+
 // 当前用户信息
 const currentUseDetail = {
   name: 'Teguh Amanah Putra',
-//   /images/ff-012.jpg
-  avatar: '',
+  avatar: '/images/ff-012.jpg',
   userid: '00000001',
   email: 'teguhamanah8@gmail.com',
   signature: 'D4 Sistem Informasi，Politeknik Caltex Riau',
@@ -106,9 +130,8 @@ const currentUseDetail = {
       id: 'xxx1',
       title: titles[0],
       logo: avatars[0],
-      description: '那是一种内在的东西，他们到达不了，也无法触及的',
       updatedAt: new Date(),
-      member: '科学搬砖组',
+      member: 'React',
       href: '',
       memberLink: '',
     },
@@ -116,9 +139,8 @@ const currentUseDetail = {
       id: 'xxx2',
       title: titles[1],
       logo: avatars[1],
-      description: '希望是一个好东西，也许是最好的，好东西是不会消亡的',
       updatedAt: new Date('2017-07-24'),
-      member: '全组都是吴彦祖',
+      member: 'Type Script',
       href: '',
       memberLink: '',
     },
@@ -126,9 +148,8 @@ const currentUseDetail = {
       id: 'xxx3',
       title: titles[2],
       logo: avatars[2],
-      description: '城镇中有那么多的酒馆，她却偏偏走进了我的酒馆',
       updatedAt: new Date(),
-      member: '中二少女团',
+      member: 'Laravel',
       href: '',
       memberLink: '',
     },
@@ -136,9 +157,8 @@ const currentUseDetail = {
       id: 'xxx4',
       title: titles[3],
       logo: avatars[3],
-      description: '那时候我只会想自己想要什么，从不想自己拥有什么',
       updatedAt: new Date('2017-07-23'),
-      member: '程序员日常',
+      member: 'PHP',
       href: '',
       memberLink: '',
     },
@@ -146,9 +166,8 @@ const currentUseDetail = {
       id: 'xxx5',
       title: titles[4],
       logo: avatars[4],
-      description: '凛冬将至',
       updatedAt: new Date('2017-07-23'),
-      member: '高逼格设计天团',
+      member: 'Python',
       href: '',
       memberLink: '',
     },
@@ -156,12 +175,47 @@ const currentUseDetail = {
       id: 'xxx6',
       title: titles[5],
       logo: avatars[5],
-      description: '生命就像一盒巧克力，结果往往出人意料',
       updatedAt: new Date('2017-07-23'),
-      member: '骗你来学计算机',
+      member: 'FastAPI',
       href: '',
       memberLink: '',
-    },
+      },
+      {
+        id: 'xxx7',
+        title: titles[6],
+        logo: avatars[6],
+        updatedAt: new Date('2017-07-23'),
+        member: 'Bootstrap',
+        href: '',
+        memberLink: '',
+      },
+      {
+        id: 'xxx8',
+        title: titles[7],
+        logo: avatars[7],
+        updatedAt: new Date('2017-07-23'),
+        member: 'CSS',
+        href: '',
+        memberLink: '',
+      },
+      {
+        id: 'xxx9',
+        title: titles[8],
+        logo: avatars[8],
+        updatedAt: new Date('2017-07-23'),
+        member: 'Ant Design',
+        href: '',
+        memberLink: '',
+      },
+      {
+        id: 'xxx10',
+        title: titles[9],
+        logo: avatars[9],
+        updatedAt: new Date('2017-07-23'),
+        member: 'Ant Design Pro',
+        href: '',
+        memberLink: '',
+      },
   ],
   notifyCount: 12,
   unreadCount: 11,
@@ -208,7 +262,7 @@ function fakeList(count: number): ListItemDataType[] {
       like: Math.ceil(Math.random() * 100) + 100,
       message: Math.ceil(Math.random() * 10) + 10,
       content:
-        '段落示意：蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 ant.design，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。',
+        'ABC',
       members: [
         {
           avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ZiESqWwCXBRQoaPONSJe.png',
@@ -232,10 +286,28 @@ function fakeList(count: number): ListItemDataType[] {
   return list;
 }
 
+function workList(count: number): ListItemWorkType[] {
+  const list = [];
+  for (let i = 0; i < count; i += 1) {
+    list.push({
+      id: `${i}`,
+      title: titles[i % 3],
+      logo: logoPerushaan[i % 3],
+      cover: parseInt(`${i / 4}`, 10) % 2 === 0 ? covers[i % 4] : covers[3 - (i % 4)],
+      href: link[i % 3],
+      description: description[i % 3],
+      message: Math.ceil(Math.random() * 10) + 10,
+      content: content_pengalaman[i % 3],
+    });
+  }
+
+  return list;
+}
+
 function getFakeList(req: Request, res: Response) {
   const params = req.query as any;
 
-  const count = Number(params.count) * 1 || 5;
+  const count = 3;
 
   const result = fakeList(count);
   return res.json({
@@ -243,6 +315,18 @@ function getFakeList(req: Request, res: Response) {
       list: result,
     },
   });
+}
+
+function getWorkList(req: Request, res: Response) {
+  const params = req.query as any;
+
+  const count = 3;
+  const result = workList(count);
+  return res.json({
+    data: {
+      list: result,
+    },
+  })
 }
 
 // 获取用户信息
@@ -254,5 +338,6 @@ function getCurrentUser(req: Request, res: Response) {
 
 export default {
   'GET  /api/fake_list_Detail': getFakeList,
+  'Get /api/work_list_Detail': getWorkList,
   'GET  /api/currentUserDetail': getCurrentUser,
 };

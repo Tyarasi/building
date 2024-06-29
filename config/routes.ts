@@ -74,6 +74,6 @@ export default [
   // },
   {
     path: '/',
-    component: './dashboard/analysis',
+    component: './account/center',
   },
 ];
