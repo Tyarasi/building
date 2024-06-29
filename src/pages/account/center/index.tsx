@@ -182,7 +182,7 @@ const Center: React.FC = () => {
                 <div className={styles.avatarHolder}>
                   <img alt="" src={currentUser.avatar} />
                   <div className={styles.name}>{currentUser.name}</div>
-                  <div>{currentUser?.signature}</div>
+                  <div>{currentUser?.pendidikan}</div>
                 </div>
                 {renderUserInfo(currentUser)}
                 <Divider dashed />
@@ -200,7 +200,7 @@ const Center: React.FC = () => {
                         <Col key={item.id} lg={24} xl={12}>
                           <a href={item.href}>
                             <Avatar size="small" src={item.logo} />
-                            {item.member}
+                            {item.nama}
                           </a>
                         </Col>
                       ))}

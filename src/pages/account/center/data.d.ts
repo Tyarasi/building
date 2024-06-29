@@ -21,7 +21,7 @@ export type NoticeType = {
   logo: string;
   description: string;
   updatedAt: string;
-  member: string;
+  nama: string; 
   href: string;
   memberLink: string;
 };
@@ -32,7 +32,7 @@ export type CurrentUser = {
   userid: string;
   notice: NoticeType[];
   email: string;
-  signature: string;
+  pendidikan: string;
   title: string;
   group: string;
   tags: TagType[];
